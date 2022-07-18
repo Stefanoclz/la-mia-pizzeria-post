@@ -21,12 +21,20 @@
                 Lista Ingredienti:
             </h5>
             <ul>
-                @foreach(Ingrediente ingrediente in @Model.listaIngredienti)
+                @if(@Model.listaIngredienti.Count() > 0)
                 {
+                    @foreach(Ingrediente ingrediente in @Model.listaIngredienti)
+                    {
                     <li>
                         @ingrediente.Name
                     </li>
+                    }
                 }
+                else
+                {
+                    <p>Non sono presenti ingredienti</p>
+                }
+
             </ul>
         </div>
     </div>
