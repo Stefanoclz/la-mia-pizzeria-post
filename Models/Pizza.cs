@@ -7,13 +7,21 @@ public class Pizza
     [Key]
     public int id { get; set; }
 
+    [Required(ErrorMessage = "Il campo è obbligatorio")]
+    [StringLength(25, ErrorMessage = "Il nome non può avere più di 25 caratteri")]
     public string name { get; set; }
 
+    [Required(ErrorMessage = "Il campo è obbligatorio")]
+    [StringLength(100, ErrorMessage = "La descrizione non può avere più di 100 caratteri")]
     [Column(TypeName = "text")]
     public string description { get; set; }
 
+    [Required(ErrorMessage = "Il campo è obbligatorio")]
+    [Url(ErrorMessage = "Deve essere un link valido")]
     public string fotoLink { get; set; }
 
+    [Required(ErrorMessage = "Il campo è obbligatorio")]
+    [Range(1, 15, ErrorMessage = "Il prezzo deve essere compreso tra 1 e 15")]
     [Column(TypeName = "decimal(6, 2)")]
     public decimal prezzo { get; set; }
 
