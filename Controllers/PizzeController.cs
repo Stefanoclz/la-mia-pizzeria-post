@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.Data.SqlClient;
-
+using la_mia_pizzeria_static.ValidationAttributes;
 
 namespace la_mia_pizzeria_static.Controllers
 {
@@ -47,6 +47,7 @@ namespace la_mia_pizzeria_static.Controllers
         // POST: HomeController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [MoreThanFiveWordsValidationAttribute]
         public ActionResult Create(Pizza pizza)
         {
             if (!ModelState.IsValid)
